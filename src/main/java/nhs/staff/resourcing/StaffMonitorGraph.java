@@ -14,18 +14,18 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * Creates a real-time chart using SwingWorker
  */
-public class StaffMonitor implements GetChart<XYChart>, RealtimeChart {
+public class StaffMonitorGraph implements GetChart<XYChart>, RealtimeChart {
 
 
     private XYChart chart;
     private List<Double> yData;
-    public static final String SERIES_NAME = "series1";
+    public static final String SERIES_NAME = "Patient to Staff";
 
 
     public static void main(String[] args) throws Exception {
 
-        final StaffMonitor staffMonitor = new StaffMonitor();
-        staffMonitor.go();
+        final StaffMonitorGraph staffMonitorGraph = new StaffMonitorGraph();
+        staffMonitorGraph.go();
     }
 
     private void go() {
@@ -70,7 +70,7 @@ public class StaffMonitor implements GetChart<XYChart>, RealtimeChart {
                 .width(500)
                 .height(400)
                 .theme(Styler.ChartTheme.GGPlot2)
-                .title("Real-time XY Chart")
+                .title("Staff Monitoring")
                 .build();
         chart.addSeries(SERIES_NAME, null, yData);
 
